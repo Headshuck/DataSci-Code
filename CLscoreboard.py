@@ -28,7 +28,7 @@ use = 0
 
 
 for match in item['fixtures']:
-	if match['status'] == "FINISHED":
+	if match['status'] != 'TIMED':
 		winner = None
 		loser = None
 		homeTeamGoals = match['result']['goalsHomeTeam']
@@ -78,7 +78,8 @@ for match in item['fixtures']:
 			print 'Error - ' + str(winner) # Just a checking mechanism 
 		#print (checkedTeams) # checking.
 		#print 'USE: ' + str(use)
-
+	else:
+		break
 		
 for country, record in scores.iteritems():
 	points = float(record[0]*3 + record[2])
